@@ -33,5 +33,9 @@
 
 8. 用className 代替 class
 
-9. 
+9. vue中获取 dom相关，nextTick , react 中 setState 第二个参数中
+
+10. redux 中，没有 mutation，取代的是 reducers
+
+11. 
 
