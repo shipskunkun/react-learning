@@ -35,5 +35,5 @@
 
 10. redux 中，没有 mutation，取代的是 reducers
 
-11. 
+11. 样式隔离，Vue 使用 scoped， react 中使用 插件管理
 

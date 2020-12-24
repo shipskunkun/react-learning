@@ -1,3 +1,7 @@
+一般来说， willMount  和  didMount 只执行一次，只在挂载的时候被执行， 后面都是 render
+
+
+
 如何创建组件
 
 ```
