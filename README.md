@@ -1,5 +1,9 @@
 # react-learning
 
+总学习时长：
+
+10h(前4章+背景知识，相当于一天玩手机+电脑的时间)
+
 2020-12-17 start learn react		
 		 6:00-7:00，1h学完 阮一峰demo
 
