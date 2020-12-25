@@ -1,8 +1,44 @@
+总学习时长：
+
+25日，下午开始看视频
+
+​		2章、3章、4章 结束。
+
+​		3:30-7:00,  
+
+26日，
+
+1219，2、3 章done
+
+​	第三章，2h，done
+
+​    第四章一半。2h
+
+
+
+
+
+
+
+
+
+
+
 
 
 # React全家桶+AntD共享单车后台管理系统开发
 
 https://coding.imooc.com/class/236.html
+
+总视频时长：20h 
+
+相当于40h学习，一天4小时，半个月。
+
+
+
+下载地址：2018--9-7
+
+https://www.xuetu123.com/forum.php?mod=viewthread&tid=367&highlight=%E5%8D%95%E8%BD%A6 
 
 
 
