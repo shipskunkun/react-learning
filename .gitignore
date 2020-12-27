@@ -1,4 +1,4 @@
-node_modules/
+bike-antd/code/node_modules/
 .cache/
 dist/
 .DS_Store
