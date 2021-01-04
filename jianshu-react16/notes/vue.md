@@ -37,3 +37,12 @@
 
 11. 样式隔离，Vue 使用 scoped， react 中使用 插件管理
 
+
+
+代码：
+
+12. 打包后 vue 在dist 中， react 在public 中
+
+13. vue方法需要卸载methods 中， react不需要
+
+14. vue中命中路由，监听 location ，react 中 通过 switch 匹配的方式。
