@@ -46,3 +46,9 @@
 13. vue方法需要卸载methods 中， react不需要
 
 14. vue中命中路由，监听 location ，react 中 通过 switch 匹配的方式。
+
+    ​	vue中，配置嵌套路由，在 vue-router 中通过对象数组配置
+
+    ​	react 中 ，通过 HashRouter 或者 BrowserRouter  + switch，做路由匹配。
+
+15. 
