@@ -51,4 +51,36 @@
 
     ​	react 中 ，通过 HashRouter 或者 BrowserRouter  + switch，做路由匹配。
 
-15. 
+15. 调用方法
+
+    ​	如果不写 bind(this)  就要在方法定义的时候使用箭头函数
+
+    ​	方法一：	
+
+    ```react
+    <Button type="primary" onClick={this.handleCloseLoading}>关闭</Button>
+    
+    handleCloseLoading=()=>{
+      this.setState({
+        loading:false
+      });
+    }
+    ```
+
+    ​	方法二：
+
+    
+
+    ```react
+    <Button type="primary" onClick={this.handleCloseLoading.bind(this)}>关闭</Button>
+    
+    handleCloseLoading(){
+      this.setState({
+        loading:false
+      });
+    }
+    ```
+
+    ​	
+
+16. 
