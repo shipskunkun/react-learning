@@ -26,7 +26,11 @@
 
 6日
 
-​	10章，11：00-12：00
+​	9章，11：00-12：00，9-4done
+
+​	10章，6：00-7：00, 10-4done
+
+
 
 7日
 
@@ -43,6 +47,8 @@
 # React全家桶+AntD共享单车后台管理系统开发
 
 https://coding.imooc.com/class/236.html
+
+http://imoocms.51purse.com/#/home
 
 总视频时长：20h 
 
