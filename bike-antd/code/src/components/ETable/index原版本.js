@@ -7,11 +7,8 @@ export default class ETable extends React.Component {
     state = {}
     //处理行点击事件
     onRowClick = (record, index) => {
-        // let rowSelection = this.props.rowSelection;
-        let rowSelection = rowSelection;
-        console.log('rowSelection', rowSelection);
-
-        // if(rowSelection == 'checkbox'){
+        let rowSelection = this.props.rowSelection;
+        if(rowSelection == 'checkbox'){
             let selectedRowKeys = this.props.selectedRowKeys;
             let selectedIds = this.props.selectedIds;
             let selectedItem = this.props.selectedItem || [];
@@ -31,24 +28,22 @@ export default class ETable extends React.Component {
                 selectedRowKeys = [index]
                 selectedItem = [record];
             }
-            console.log(selectedRowKeys, selectedItem)
             this.props.updateSelectedItem(selectedRowKeys,selectedItem || {},selectedIds);
-        // }else{
-        //     let selectKey = [index];
-        //     const selectedRowKeys = this.props.selectedRowKeys;
-        //     if (selectedRowKeys && selectedRowKeys[0] == index){
-        //         return;
-        //     }
-        //     console.log(index, selectKey, record)
-        //     this.props.updateSelectedItem(selectKey,record || {});
-        // }
+        }else{
+            let selectKey = [index];
+            const selectedRowKeys = this.props.selectedRowKeys;
+            if (selectedRowKeys && selectedRowKeys[0] == index){
+                return;
+            }
+            this.props.updateSelectedItem(selectKey,record || {});
+        }
     };
 
     // 选择框变更
     onSelectChange = (selectedRowKeys, selectedRows) => {
         let rowSelection = this.props.rowSelection;
         const selectedIds = [];
-        // if(rowSelection == 'checkbox'){
+        if(rowSelection == 'checkbox'){
             selectedRows.map((item)=>{
                 selectedIds.push(item.id);
             });
@@ -57,8 +52,7 @@ export default class ETable extends React.Component {
                 selectedIds:selectedIds,
                 selectedItem: selectedRows[0]
             });
-        // }
-        console.log('onSelectChange', selectedRows)
+        }
         this.props.updateSelectedItem(selectedRowKeys,selectedRows[0],selectedIds);
     };
 
@@ -69,10 +63,7 @@ export default class ETable extends React.Component {
             selectedIds.push(item.id);
             selectKey.push(i);
         });
-        console.log('all', selectKey,selectedRows[0], selectedIds)
         this.props.updateSelectedItem(selectKey,selectedRows[0] || {},selectedIds);
-        
-
     }
 
     getOptions = () => {
@@ -114,17 +105,15 @@ export default class ETable extends React.Component {
         }
         const { selectedRowKeys } = this.props;
         const rowSelection = {
-            // type: 'radio', //测试一
-            type: 'checkbox',
+            type: 'radio',
             selectedRowKeys,
             onChange: this.onSelectChange,
             onSelect:(record, selected, selectedRows)=>{
-                console.log('...', selectedRows)
+                console.log('...')
             },
             onSelectAll:this.onSelectAll
         };
         let row_selection = this.props.rowSelection;
-        console.log('row_selection', row_selection)
         // 当属性未false或者null时，说明没有单选或者复选列
         if(row_selection===false || row_selection === null){
             row_selection = false;
@@ -139,8 +128,7 @@ export default class ETable extends React.Component {
                 className="card-wrap page-table"
                 bordered 
                 {...this.props}
-                // rowSelection={row_selection?rowSelection:null}
-                rowSelection= {rowSelection}
+                rowSelection={row_selection?rowSelection:null}
                 onRow={(record,index) => ({
                     onClick: ()=>{
                         if(!row_selection){

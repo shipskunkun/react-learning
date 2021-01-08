@@ -18,68 +18,26 @@ export default class User extends React.Component{
     }
 
     requestList = ()=>{
-        let result = 
-        {
-            "list": [
-              {
-                "id": 1,
-                "userName": "蒋秀英",
-                "sex": 1,
-                "state": 5,
-                "interest": 1,
-                "isMarried": 0,
-                "birthday": "2000-01-01",
-                "address": "北京市海淀区",
-                "time": "09:00:00"
-              },
-              {
-                "id": 2,
-                "userName": "叶超",
-                "sex": 2,
-                "state": 4,
-                "interest": 4,
-                "isMarried": 1,
-                "birthday": "2000-01-01",
-                "address": "北京市海淀区",
-                "time": "09:00:00"
-              },
-              {
-                "id": 3,
-                "userName": "方超",
-                "sex": 1,
-                "state": 4,
-                "interest": 8,
-                "isMarried": 0,
-                "birthday": "2000-01-01",
-                "address": "北京市海淀区",
-                "time": "09:00:00"
-              },
-              {
-                "id": 4,
-                "userName": "郭超",
-                "sex": 2,
-                "state": 2,
-                "interest": 1,
-                "isMarried": 0,
-                "birthday": "2000-01-01",
-                "address": "北京市海淀区",
-                "time": "09:00:00"
-              }]
-        };
-        let _this = this;
-        this.setState({
-                list:result.list.map((item,index)=>{
+        axios.ajax({
+            url:'/table/list1',
+            data:{
+                params:{
+                    page:this.params.page
+                }
+            }
+        }).then((res)=>{
+            let _this = this;
+            this.setState({
+                list:res.result.list.map((item,index)=>{
                     item.key=index
                     return item;
+                }),
+                pagination:Utils.pagination(res,(current)=>{
+                    _this.params.page = current;
+                    _this.requestList();
                 })
-                // ,
-                // pagination:Utils.pagination(result,(current)=>{
-                //     _this.params.page = current;
-                //     _this.requestList();
-                // })
             })
-
-
+        })
     }
 
     componentDidMount(){
@@ -110,15 +68,13 @@ export default class User extends React.Component{
                 type
             })
         }else if(type=="delete"){
-            // if(!item){
-            //     Modal.info({
-            //         title: '信息',
-            //         content: '请选择一个用户'
-            //     })
-            //     return;
-            // }
-
-            // console.log(Utils.ui)
+            if(!item){
+                Modal.info({
+                    title: '信息',
+                    content: '请选择一个用户'
+                })
+                return;
+            }
             Utils.ui.confirm({
                 text:'确定要删除此用户吗？',
                 onOk:()=>{
