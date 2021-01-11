@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card, Table, Modal, Button, message} from 'antd';
 import axios from './../../axios/index'
-import Utils from './../../utils/utils';
+import Utils from './../../utils/utils'
+import info from './info.js'
 export default class BasicTable extends React.Component{
 
     state={
@@ -54,7 +55,7 @@ export default class BasicTable extends React.Component{
         this.request();
     }
 
-    // 动态获取mock数据
+    /* 动态获取mock数据
     request = ()=>{
         let _this = this;
         axios.ajax({
@@ -81,7 +82,23 @@ export default class BasicTable extends React.Component{
             }
         })
     }
+    */
 
+    request = ()=> {
+        let res = info;
+        res.result.list.map((item, index) => {
+            item.key = index;
+        })
+        this.setState({
+            dataSource2:res.result.list,
+            selectedRowKeys:[],
+            selectedRows:null,
+            pagination: Utils.pagination(res,(current)=>{
+                _this.params.page = current;
+                this.request();
+            })
+        })
+    }
     onRowClick = (record,index)=>{
         let selectKey = [index];
         Modal.info({
@@ -180,7 +197,10 @@ export default class BasicTable extends React.Component{
                 dataIndex: 'time'
             }
         ]
-        const selectedRowKeys = this.state.selectedRowKeys;
+        // const selectedRowKeys = this.state.selectedRowKeys;
+        const selectedRowKeys = [4];  // 设置初始值
+        // console.log('可以初始选中值', selectedRowKeys)
+
         const rowSelection = {
             type:'radio',
             selectedRowKeys

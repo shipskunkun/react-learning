@@ -1,7 +1,9 @@
 import React from 'react';
 import { Card, Table, Modal, Button, message, Badge } from 'antd';
 import axios from './../../axios/index'
-import Utils from './../../utils/utils';
+import Utils from './../../utils/utils'
+import info2 from './info2.js'
+
 export default class BasicTable extends React.Component {
 
     state = {
@@ -14,7 +16,7 @@ export default class BasicTable extends React.Component {
         this.request();
     }
 
-    // 动态获取mock数据
+    /* 动态获取mock数据
     request = () => {
         let _this = this;
         axios.ajax({
@@ -35,9 +37,20 @@ export default class BasicTable extends React.Component {
             }
         })
     }
+    */
+
+    request = () => {
+        let res = info2;
+        res.result.list.map((item, index) => {
+            item.key = index;
+        })
+        this.setState({
+            dataSource: res.result.list
+        })
+    }
 
     handleChange = (pagination, filters, sorter)=>{
-        console.log("::" + sorter)
+        console.log("::" + sorter.order)
         this.setState({
             sortOrder:sorter.order
         })

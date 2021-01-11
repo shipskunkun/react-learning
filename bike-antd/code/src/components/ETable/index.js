@@ -9,9 +9,9 @@ export default class ETable extends React.Component {
     onRowClick = (record, index) => {
         // let rowSelection = this.props.rowSelection;
         let rowSelection = rowSelection;
-        console.log('rowSelection', rowSelection);
+        console.log('rowSelection', this.test);
 
-        // if(rowSelection == 'checkbox'){
+        if(this.test.type == 'checkbox'){
             let selectedRowKeys = this.props.selectedRowKeys;
             let selectedIds = this.props.selectedIds;
             let selectedItem = this.props.selectedItem || [];
@@ -33,15 +33,15 @@ export default class ETable extends React.Component {
             }
             console.log(selectedRowKeys, selectedItem)
             this.props.updateSelectedItem(selectedRowKeys,selectedItem || {},selectedIds);
-        // }else{
-        //     let selectKey = [index];
-        //     const selectedRowKeys = this.props.selectedRowKeys;
-        //     if (selectedRowKeys && selectedRowKeys[0] == index){
-        //         return;
-        //     }
-        //     console.log(index, selectKey, record)
-        //     this.props.updateSelectedItem(selectKey,record || {});
-        // }
+        }else{
+            let selectKey = [index];
+            const selectedRowKeys = this.props.selectedRowKeys;
+            if (selectedRowKeys && selectedRowKeys[0] == index){
+                return;
+            }
+            console.log(index, selectKey, record)
+            this.props.updateSelectedItem(selectKey,record || {});
+        }
     };
 
     // 选择框变更
@@ -114,8 +114,8 @@ export default class ETable extends React.Component {
         }
         const { selectedRowKeys } = this.props;
         const rowSelection = {
-            // type: 'radio', //测试一
-            type: 'checkbox',
+            type: 'radio', //测试一
+            // type: 'checkbox',
             selectedRowKeys,
             onChange: this.onSelectChange,
             onSelect:(record, selected, selectedRows)=>{
@@ -124,6 +124,9 @@ export default class ETable extends React.Component {
             onSelectAll:this.onSelectAll
         };
         let row_selection = this.props.rowSelection;
+
+        this.test = rowSelection;
+
         console.log('row_selection', row_selection)
         // 当属性未false或者null时，说明没有单选或者复选列
         if(row_selection===false || row_selection === null){

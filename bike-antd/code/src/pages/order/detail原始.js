@@ -2,20 +2,17 @@ import React from 'react';
 import { Card } from 'antd'
 import axios from '../../axios'
 import './detail.less'
-import info from './info.js'
 export default class Order extends React.Component {
 
     state = {}
 
     componentDidMount(){
-        console.log(info)
-        this.setState({
-            orderInfo:info.result
-        })
-        this.renderMap(info.result);    
+        let orderId = this.props.match.params.orderId;
+        if(orderId){
+            this.getDetailInfo(orderId);
+        }
     }
 
-    /*
     getDetailInfo = (orderId)=>{
         axios.ajax({
             url:'/order/detail',
@@ -33,8 +30,6 @@ export default class Order extends React.Component {
             }
         })
     }
-    */
-   
 
     renderMap = (result)=>{
         this.map = new window.BMap.Map('orderDetailMap');
@@ -44,7 +39,7 @@ export default class Order extends React.Component {
         // 调用路线图绘制方法
         this.drawBikeRoute(result.position_list);
         // 调用服务区绘制方法
-        // this.drwaServiceArea(result.area);
+        this.drwaServiceArea(result.area);
     }
 
     // 添加地图控件
