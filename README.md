@@ -8,3 +8,9 @@ https://coding.imooc.com/class/229.html
 
 https://coding.imooc.com/class/236.html
 
+差不多一个月时间，学语法，201217-210117
+
+两个项目+interview4/react面试看完
+
+react 源码之类的
+
