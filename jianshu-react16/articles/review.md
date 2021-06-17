@@ -85,5 +85,9 @@ dispatch是谁的方法？store
 
 3章
 
+Fragment = template
+
+onChange={this.handleChange.bind(this)， 驼峰， this指向组件
+
 单项数据流：子组件中接受父组件中值，但是不能直接改变传过来的值
 
