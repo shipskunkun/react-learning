@@ -27,6 +27,12 @@ provider 给组件提供store，组件中通过connect高阶函数，获得mapSt
 
 
 
+为什么使用 redux-thunk?
+
+action 由对象变成函数，在action中写异步函数
+
+
+
 
 
 5章
@@ -47,7 +53,7 @@ reducer 接受参数和返回参数怎么记忆？action是行为，对state修�
 
 组件如何通过store获取初始state？store.getState()
 
-action是如何触发的？通过dispatch
+action是如何触发的？通过store.dispatch
 
 dispatch是谁的方法？store
 
