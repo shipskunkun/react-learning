@@ -123,19 +123,8 @@ const mapStateToProps = (state) => {
 
 const mapDispathToProps = (dispatch) => {
 	return {
-		handleInputFocus(list) {
-			(list.size === 0) && dispatch(actionCreators.getList());
-			dispatch(actionCreators.searchFocus());
-		},
-		handleInputBlur() {
-			dispatch(actionCreators.searchBlur());
-		},
-		handleMouseEnter() {
-			dispatch(actionCreators.mouseEnter());
-		},
-		handleMouseLeave() {
-			dispatch(actionCreators.mouseLeave());
-		},
+		
+		
 		handleChangePage(page, totalPage, spin) {
 			let originAngle = spin.style.transform.replace(/[^0-9]/ig, '');
 			if (originAngle) {
